@@ -1,0 +1,40 @@
+
+<h1 class="h1-st">GESTIÓN DE EMPLEADOS</h1>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-0.0001">
+            <div [@aparecerDesdeArriba] *ngIf="mostrarCard" class="card ancho-mas fondo-personalizado">
+                <div class="card-body text-center">
+                        <span class="titulo">LISTA DE EMPLEADOS
+                      <i class="fa-solid fa-circle-plus fa-beat float-end fa-icon fa-xl" routerLink="/crear-producto" style="color:darkgreen;"></i>
+                        </span>
+                      <table *ngIf="listarEmpleados.length > 0" class="table table-sm mt-4 table-borderless tabla-grande">
+                        <thead class="table-dark">
+                          <tr>
+                            <th cope="col">Nombre</th> <!--nombre-->
+                            <th scope="col">Apellido</th> <!--categoria--> 
+                            <th scope="col">Fecha de nacimiento</th> <!--ubicacion--> 
+                            <th scope="col">Puesto</th> <!--precio-->
+                            <th scope="col">Salario</th> <!--precio-->
+                            <th scope="col">Numero de telefono</th> <!--precio-->
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let empleado of listarEmpleados">
+                            <th>{{empleado.nombre}}</th>
+                            <td>{{empleado.apellido}}</td>
+                            <td>{{empleado.fechaNa}}</td>
+                            <td>{{empleado.puesto}}</td>
+                            <td>{{empleado.salario | currency: 'USD'}}</td>
+                            <td>{{empleado.tel}}</td>
+                              <i [routerLink]="['/editar-producto', empleado._id]" class="fa fa-solid fa-pen fa-xl" style="color:royalblue;"></i>
+                              <i (click)="confirmar(empleado)" class="fa fa-solid fa-trash-can fa-xl" style="color: #e90101;"></i>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <h5 style="text-align: star; margin-top: 10px;" *ngIf="listarEmpleados.length == 0"> No hay empleados para mostrar</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card form-custom card-e">
+                <div [@aparecerDesdeArriba] *ngIf="mostrarCard" class="card-body text-center">
+                    <span class="titulo">{{titulo | uppercase}}</span>
+                    <form class="mb-3" [formGroup]="empleadoForm" (ngSubmit)="agregarEmpleado()">  
+
+                        <div class="mb-3">
+                            <input formControlName="nombre" type="text" class="form-control form-control-lg" placeholder="Nombre">
+                            <div class="text-danger" 
+                                *ngIf="empleadoForm.get('nombre')?.hasError('required') && empleadoForm.get('nombre')?.touched" >
+                                <span>El nombre del empleado <strong>es obligatorio</strong></span>
+                            </div>
+                        </div>  
+
+                        <div class="mb-3">
+                            <input formControlName="apellido" type="text" class="form-control form-control-lg" placeholder="Apellido">
+                            <div class="text-danger" 
+                                *ngIf="empleadoForm.get('apellido')?.hasError('required') && empleadoForm.get('apellido')?.touched" >
+                                <span>El apellido del empleado <strong>es obligatorio</strong></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <input formControlName="fechaNa" type="date" class="form-control form-control-lg" placeholder="Fecha de Nacimiento">
+                            <div class="text-danger" 
+                                *ngIf="empleadoForm.get('fechaNa')?.hasError('required') && empleadoForm.get('fechaNa')?.touched" >
+                                <span>La fecha de nacimiento del empleado <strong>es obligatorio</strong></span>
+                            </div>
+                        </div> 
+
+                        <!--SIGUIENTES CAMPOS-->
+
+                        <div class="mb-3">
+                            <input formControlName="puesto" type="text" class="form-control form-control-lg" placeholder="Puesto">
+                            <div class="text-danger" 
+                                *ngIf="empleadoForm.get('puesto')?.hasError('required') && empleadoForm.get('puesto')?.touched" >
+                                <span>El puesto del empleado <strong>es obligatorio</strong></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <input formControlName="salario" type="number" class="form-control form-control-lg" placeholder="Salario">
+                            <div class="text-danger" 
+                                *ngIf="empleadoForm.get('salario')?.hasError('required') && empleadoForm.get('salario')?.touched" >
+                                <span>El salario del empleado <strong>es obligatorio</strong></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <input formControlName="tel" type="tel" class="form-control form-control-lg" placeholder="Teléfono">
+                            <div class="text-danger" 
+                                *ngIf="empleadoForm.get('tel')?.hasError('required') && empleadoForm.get('tel')?.touched" >
+                                <span>El telefono del empleado <strong>es obligatorio</strong></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <button routerLink="/" class="btn btn-secondary btn-lg float-start">VOLVER</button>
+                            <button [disabled]="empleadoForm.invalid" type="submit" class="btn btn-primary btn-lg float-end">GUARDAR</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

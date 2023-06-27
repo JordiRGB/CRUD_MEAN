@@ -1,0 +1,18 @@
+.fa{
+    cursor: pointer;
+    margin-left: 10px;
+}
+.fondo-personalizado{
+    background-color:white;
+    border-radius: 20px;
+    border-color: black;
+    border-width: 2px;
+}
+.fa-icon{
+    margin-right: 3.1%;
+    margin-top: 1.9%;
+    cursor: pointer;
+}
+.h1-st{
+    color:black; /* Establece una sombra de texto con desplazamiento horizontal de 2px, desplazamiento vertical de 2px, desenfoque de 4px y color negro (#000000) */
+}
